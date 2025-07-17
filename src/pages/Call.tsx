@@ -1,9 +1,18 @@
 import styled from 'styled-components';
+import {
+  BottomNav,
+  DefaultHeader,
+  ContentContainer,
+} from '@components/common/index';
 
 const Call = () => {
   return (
     <Container>
-      <Text>Call</Text>
+      <DefaultHeader />
+      <ContentContainer>
+        <Text>Call</Text>
+      </ContentContainer>
+      <BottomNav />
     </Container>
   );
 };

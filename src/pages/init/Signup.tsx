@@ -1,9 +1,13 @@
 import styled from 'styled-components';
+import { BackHeader, ContentContainer } from '@components/common/index';
 
 const Signup = () => {
   return (
     <Container>
-      <Text>Signup</Text>
+      <BackHeader title="회원가입" />
+      <ContentContainer>
+        <Text>Signup</Text>
+      </ContentContainer>
     </Container>
   );
 };

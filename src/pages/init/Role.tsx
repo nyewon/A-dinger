@@ -1,9 +1,13 @@
 import styled from 'styled-components';
+import { BackHeader, ContentContainer } from '@components/common/index';
 
 const Role = () => {
   return (
     <Container>
-      <Text>Role</Text>
+      <BackHeader title="회원가입" />
+      <ContentContainer>
+        <Text>Role</Text>
+      </ContentContainer>
     </Container>
   );
 };

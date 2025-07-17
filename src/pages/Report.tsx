@@ -1,9 +1,18 @@
 import styled from 'styled-components';
+import {
+  BottomNav,
+  DefaultHeader,
+  ContentContainer,
+} from '@components/common/index';
 
 const Report = () => {
   return (
     <Container>
-      <Text>Report</Text>
+      <DefaultHeader showIcon={false} />
+      <ContentContainer>
+        <Text>Report</Text>
+      </ContentContainer>
+      <BottomNav />
     </Container>
   );
 };

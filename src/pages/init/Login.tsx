@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+import { ContentContainer } from '@components/common/index';
 
 const Login = () => {
   return (
     <Container>
-      <Text>Login</Text>
+      <ContentContainer>
+        <Text>Login</Text>
+      </ContentContainer>
     </Container>
   );
 };

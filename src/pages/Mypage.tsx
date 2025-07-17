@@ -1,9 +1,18 @@
 import styled from 'styled-components';
+import {
+  BottomNav,
+  DefaultHeader,
+  ContentContainer,
+} from '@components/common/index';
 
 const Mypage = () => {
   return (
     <Container>
-      <Text>Mypage</Text>
+      <DefaultHeader showIcon={false} />
+      <ContentContainer>
+        <Text>Mypage</Text>
+      </ContentContainer>
+      <BottomNav />
     </Container>
   );
 };
