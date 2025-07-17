@@ -33,7 +33,7 @@ export default [
       'prettier/prettier': [
         'error',
         {
-          endOfLine: 'lf',
+          endOfLine: 'auto',
         },
       ],
       'react/react-in-jsx-scope': 'off',
