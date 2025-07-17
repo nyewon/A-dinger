@@ -9,10 +9,12 @@ import {
   Report,
   Mypage,
 } from '@pages/index';
+import { ScrollToTop } from '@components/common/index';
 
 const App = () => (
   <Router>
     <Container>
+      <ScrollToTop />
       <Routes>
         {/* Init */}
         <Route path="/" element={<Login />} />
