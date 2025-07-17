@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const App = () => (
   <Container>
     <h1>Alzheimer-dinger_FE</h1>
+    <p>test</p>
   </Container>
 );
 
