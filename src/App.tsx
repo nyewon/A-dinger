@@ -1,10 +1,36 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
+import {
+  Login,
+  SignupTerms,
+  Role,
+  Signup,
+  Call,
+  Report,
+  Mypage,
+} from '@pages/index';
 
 const App = () => (
-  <Container>
-    <h1>Alzheimer-dinger_FE</h1>
-    <p>test</p>
-  </Container>
+  <Router>
+    <Container>
+      <Routes>
+        {/* Init */}
+        <Route path="/" element={<Login />} />
+        <Route path="/signup-terms" element={<SignupTerms />} />
+        <Route path="/signup-role" element={<Role />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* Call */}
+        <Route path="/call" element={<Call />} />
+
+        {/* Report */}
+        <Route path="/report" element={<Report />} />
+
+        {/* MyPage */}
+        <Route path="/mypage" element={<Mypage />} />
+      </Routes>
+    </Container>
+  </Router>
 );
 
 export default App;
