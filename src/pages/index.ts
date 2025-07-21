@@ -1,7 +1,7 @@
 // init
 export { default as Login } from './init/Login';
 export { default as SignupTerms } from './init/SignupTerms';
-export { default as Role } from './init/Role';
+export { default as SignupRole } from './init/SignupRole';
 export { default as Signup } from './init/Signup';
 
 // call
