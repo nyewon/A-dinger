@@ -1,3 +1,12 @@
+/**
+ * Login - 로그인 화면
+ *
+ * 세부사항:
+ * - 사용자 역할(환자 / 보호자) 선택
+ * - 이메일 및 비밀번호 입력 필드
+ * - 유효성 검사(형식 및 임시 계정 정보 기반)
+ */
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';

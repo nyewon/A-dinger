@@ -1,3 +1,17 @@
+/**
+ * RoleCard Component
+ *
+ * props:
+ * - selected (boolean): 현재 선택된 역할인지 여부
+ * - color ('pink' | 'blue'): 역할에 따른 색상 구분
+ * - emoji (string): 역할을 나타내는 이모지
+ * - label (string): 역할 이름 (예: 환자, 보호자)
+ * - onClick (function): 클릭 시 호출되는 함수
+ *
+ * 사용 화면:
+ * - 회원가입 역할 선택 화면 (SignupRole.tsx)
+ */
+
 import styled from 'styled-components';
 
 interface RoleCardProps {

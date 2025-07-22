@@ -1,3 +1,12 @@
+/**
+ * SignupTerms - 회원가입 약관 동의 화면
+ *
+ * 세부사항:
+ * - 사용자가 전체 약관, 개인정보 수집 및 이용, 이용약관(각 필수 항목)에 대한 동의를 선택
+ * - '전체동의' 선택 시 개별 항목도 함께 체크되며, 개별 체크 상태에 따라 전체동의 상태도 자동 갱신
+ * - 필수 항목 동의 시에만 다음 단계로 이동 가능
+ */
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';

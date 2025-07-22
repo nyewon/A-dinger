@@ -1,3 +1,14 @@
+/**
+ * RoleSelector Component
+ *
+ * props:
+ * - role ('patient' | 'guardian'): 현재 선택된 역할
+ * - onChange (function): 역할 변경 시 호출되는 콜백 함수
+ *
+ * 사용 화면:
+ * - 로그인 화면 (Login.tsx)
+ */
+
 import styled from 'styled-components';
 
 interface RoleSelectorProps {

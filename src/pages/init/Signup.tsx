@@ -1,3 +1,13 @@
+/**
+ * Signup - 회원가입 정보 입력 화면
+ *
+ * 세부사항:
+ * - 사용자가 이름, 이메일, 비밀번호, 성별, 환자 코드(보호자만) 입력 필드
+ * - 환자 코드 입력은 보호자 역할 선택 시에만 활성화
+ * - 이메일 및 비밀번호 유효성 검사 포함 (utils/validation)
+ * - API 연결 전 임시 데이터 console 출력
+ */
+
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import styled from 'styled-components';

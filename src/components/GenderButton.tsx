@@ -1,3 +1,17 @@
+/**
+ * GenderButton Component
+ *
+ * props:
+ * - selected (boolean): 선택 여부
+ * - color ('pink' | 'blue'): 성별에 따른 색상 구분
+ * - label (string): 성별 라벨 텍스트
+ * - emoji (string): 성별을 나타내는 이모지
+ * - onClick (function): 클릭 시 호출되는 함수
+ *
+ * 사용 화면:
+ * - 회원가입 정보 입력 화면 (Signup.tsx)
+ */
+
 import styled from 'styled-components';
 
 interface GenderButtonProps {

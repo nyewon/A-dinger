@@ -1,3 +1,11 @@
+/*
+ * SignupRole - 회원가입 역할 선택 화면
+ *
+ * 세부사항:
+ * - 사용자가 '환자' 또는 '보호자' 역할 중 하나를 선택
+ * - 선택된 역할은 회원가입 정보 입력 화면(Signup.tsx)으로 전달
+ */
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
