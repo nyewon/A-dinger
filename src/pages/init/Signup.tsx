@@ -8,6 +8,7 @@ import {
   Input,
 } from '@components/common/index';
 import { GenderButton } from '@components/index';
+import { validateEmail, validatePassword } from '@utils/validation';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState<'male' | 'female' | null>(null);
   const [patientCode, setPatientCode] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const isFormValid =
     name.trim() !== '' &&
@@ -29,6 +32,25 @@ const Signup = () => {
 
   const handleSignup = () => {
     if (!isFormValid) return;
+
+    let hasError = false;
+
+    if (!validateEmail(email)) {
+      setEmailError('이메일 형식이 올바르지 않습니다.');
+      hasError = true;
+    } else {
+      setEmailError('');
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError('영문, 숫자, 특수문자를 포함해 8자 이상이어야 합니다.');
+      hasError = true;
+    } else {
+      setPasswordError('');
+    }
+
+    if (hasError) return;
+
     console.log({
       name,
       email,
@@ -64,6 +86,7 @@ const Signup = () => {
             inputType="text"
             onChange={e => setEmail(e.target.value)}
           />
+          {emailError && <ErrorText>{emailError}</ErrorText>}
           <Label>비밀번호</Label>
           <Input
             type="default"
@@ -72,6 +95,7 @@ const Signup = () => {
             inputType="password"
             onChange={e => setPassword(e.target.value)}
           />
+          {passwordError && <ErrorText>{passwordError}</ErrorText>}
           <Label>성별</Label>
           <GenderContainer>
             <GenderButton
@@ -157,4 +181,10 @@ const GenderContainer = styled.div`
   width: 100%;
   justify-content: center;
   gap: 1.5rem;
+`;
+
+const ErrorText = styled.p`
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin: 0.3rem 0 0 0;
 `;

@@ -3,17 +3,32 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { ContentContainer, Button, Input } from '@components/common/index';
 import { RoleSelector } from '@components/index';
+import { validateEmail, validatePassword } from '@utils/validation';
 
 const Login = () => {
   const navigate = useNavigate();
   const [role, setRole] = useState<'patient' | 'guardian'>('patient');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
 
-  const isFormValid = email.trim() !== '' && password.trim() !== '';
+  const isFormFilled = email.trim() !== '' && password.trim() !== '';
+
+  // 임시 로그인 유효성 로직
+  const isLoginValid = email === 'example@gmail.com' && password === 'test123!';
 
   const handleLogin = () => {
-    if (!isFormValid) return;
+    if (!isFormFilled) return;
+
+    if (!validateEmail(email) || !validatePassword(password)) {
+      setLoginError('아이디 또는 비밀번호의 형식이 일치하지 않습니다');
+      return;
+    }
+    if (!isLoginValid) {
+      setLoginError('아이디 또는 비밀번호가 일치하지 않습니다');
+      return;
+    }
+    setLoginError('');
     navigate('/call');
   };
 
@@ -31,10 +46,11 @@ const Login = () => {
             placeholder="이메일을 입력해주세요"
             value={email}
             inputType="text"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-            style={{ marginBottom: '1rem' }}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setEmail(e.target.value);
+              setLoginError('');
+            }}
+            style={{ marginBottom: '0.5rem' }}
           />
           <Label>비밀번호</Label>
           <Input
@@ -42,17 +58,20 @@ const Login = () => {
             placeholder="비밀번호를 입력해주세요"
             value={password}
             inputType="password"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setPassword(e.target.value);
+              setLoginError('');
+            }}
           />
+
+          {loginError && <ErrorMessage>{loginError}</ErrorMessage>}
         </Form>
 
         <Button
           type="main"
           buttonText="로그인"
-          isDisabled={!isFormValid}
-          bgColor={!email || !password ? '#d9d9d9' : '#6a1b9a'}
+          isDisabled={!isFormFilled}
+          bgColor={isFormFilled ? '#6a1b9a' : '#d9d9d9'}
           onClick={handleLogin}
         />
         <SignUpLink onClick={() => navigate('/signup-terms')}>
@@ -108,4 +127,10 @@ const SignUpLink = styled.div`
   color: #a1a1a1;
   text-decoration: underline;
   cursor: pointer;
+`;
+
+const ErrorMessage = styled.p`
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
 `;
