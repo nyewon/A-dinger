@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {
   Login,
   SignupTerms,
-  Role,
+  SignupRole,
   Signup,
   Call,
   Report,
@@ -19,7 +19,7 @@ const App = () => (
         {/* Init */}
         <Route path="/" element={<Login />} />
         <Route path="/signup-terms" element={<SignupTerms />} />
-        <Route path="/signup-role" element={<Role />} />
+        <Route path="/signup-role" element={<SignupRole />} />
         <Route path="/signup" element={<Signup />} />
 
         {/* Call */}
