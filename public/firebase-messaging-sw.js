@@ -17,6 +17,21 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging();
 
+// install event
+self.addEventListener('install', () => {
+  console.log('[Service Worker] installed');
+});
+
+// activate event
+self.addEventListener('activate', e => {
+  console.log('[Service Worker] actived', e);
+});
+
+// fetch event
+self.addEventListener('fetch', e => {
+  console.log('[Service Worker] fetched resource ' + e.request.url);
+});
+
 messaging.onBackgroundMessage(function (payload) {
   console.log(
     '[firebase-messaging-sw.js] Received background message ',
